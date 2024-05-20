@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+//
 class ViewController: UIViewController {
 
     @IBOutlet var oneButton: UIButton!
@@ -17,6 +17,8 @@ class ViewController: UIViewController {
     @IBOutlet var twoLabel: UILabel!
     @IBOutlet var threeLabel: UILabel!
  
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -25,13 +27,27 @@ class ViewController: UIViewController {
         designLabelUI(oneLabel, thisIsTextColor: .red)
         designLabelUI(twoLabel, thisIsTextColor: .blue)
         designLabelUI(threeLabel, thisIsTextColor: .green)
-        designButtonUI(oneButton, titleColor: .red, title: "234")
+        designButtonUI(oneButton, titleColor: .red, title: "JACK")
+        designButtonUI(oneButton, titleColor: .red, title: "BRAN")
+        designButtonUI(oneButton, titleColor: .red, title: "DEN")
         //(): 함수 호출 연산자
         
     }
     
+    //1. 어떤 버튼을 클릭했는 지 우찌 알죠?
+    // -> currentTitle (옵셔널 조심, 버전 조심)
+    // -> tag
+    
+    var count = [0, 0, 0]
+    
     @IBAction func oneButtonClicked(_ sender: UIButton) {
-        oneLabel.text = "4567"
+        
+        count[sender.tag] = count[sender.tag] + 1
+        
+        oneLabel.text = "\(count[0])번 클릭"
+        twoLabel.text = "\(count[1])번 클릭"
+        threeLabel.text = "\(count[2])번 클릭"
+
     }
     
     //매개변수(parameter)
