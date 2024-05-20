@@ -43,7 +43,11 @@ class ViewController: UIViewController {
     
     var count = [0, 0, 0]
     
-    @IBAction func oneButtonClicked(_ sender: UIButton) {
+    @IBAction func oneButtonClicked(_ sender: Any) {
+        
+        sender.currentTitle
+        
+        view.endEditing(true)
         
         count[sender.tag] = count[sender.tag] + 1
         
@@ -51,6 +55,19 @@ class ViewController: UIViewController {
 
     }
     
+    //1. did end on exit
+    //2. view.endEditing(true)
+    @IBAction func keyboardDismiss(_ sender: UITapGestureRecognizer) {
+        
+        view.endEditing(true)
+        
+    }
+    
+    @IBAction func imageViewTapped(_ sender: UITapGestureRecognizer) {
+        
+        view.endEditing(true)
+        
+    }
     //매개변수(parameter)
     //외부 매개변수(Argument Label) ex. thisIsTextColor
     //내부 매개변수(Parameter Name) ex. jack
