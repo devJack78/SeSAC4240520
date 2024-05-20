@@ -9,6 +9,8 @@ import UIKit
 //
 class ViewController: UIViewController {
 
+    @IBOutlet var labelList: [UILabel]!
+    
     @IBOutlet var oneButton: UIButton!
     @IBOutlet var twoButton: UIButton!
     @IBOutlet var threeButton: UIButton!
@@ -37,6 +39,7 @@ class ViewController: UIViewController {
     //1. 어떤 버튼을 클릭했는 지 우찌 알죠?
     // -> currentTitle (옵셔널 조심, 버전 조심)
     // -> tag
+    //2. 아웃렛 머 어떻게 못할까 => OutletCollection
     
     var count = [0, 0, 0]
     
@@ -44,9 +47,7 @@ class ViewController: UIViewController {
         
         count[sender.tag] = count[sender.tag] + 1
         
-        oneLabel.text = "\(count[0])번 클릭"
-        twoLabel.text = "\(count[1])번 클릭"
-        threeLabel.text = "\(count[2])번 클릭"
+        labelList[sender.tag].text = "\(count[sender.tag])번"
 
     }
     
